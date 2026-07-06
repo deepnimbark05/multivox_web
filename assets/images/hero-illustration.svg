@@ -1,0 +1,425 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" fill="none">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="48%" r="45%">
+      <stop offset="0%" stop-color="#E91E7B" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#E5A620" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E91E7B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#E91E7B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pinkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F04E98"/>
+      <stop offset="50%" stop-color="#E91E7B"/>
+      <stop offset="100%" stop-color="#E5A620"/>
+    </linearGradient>
+    <linearGradient id="goldPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0B942"/>
+      <stop offset="50%" stop-color="#E5A620"/>
+      <stop offset="100%" stop-color="#E91E7B"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a0a12"/>
+      <stop offset="100%" stop-color="#0A0A0F"/>
+    </linearGradient>
+    <linearGradient id="laptopBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#222230"/>
+      <stop offset="100%" stop-color="#16161F"/>
+    </linearGradient>
+    <linearGradient id="laptopBase" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E2A"/>
+      <stop offset="100%" stop-color="#111118"/>
+    </linearGradient>
+    <!-- 3D shadow filter -->
+    <filter id="shadow3d" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feOffset dx="0" dy="8" result="offsetBlur"/>
+      <feFlood flood-color="#E91E7B" flood-opacity="0.25" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadowGold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feOffset dx="0" dy="8" result="offsetBlur"/>
+      <feFlood flood-color="#E5A620" flood-opacity="0.25" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="blur" in2="SourceGraphic" operator="atop"/>
+    </filter>
+    <!-- Arrow marker -->
+    <marker id="arrowDot" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <circle cx="5" cy="5" r="4" fill="#E91E7B" opacity="0.9"/>
+    </marker>
+    <marker id="arrowDotGold" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <circle cx="5" cy="5" r="4" fill="#E5A620" opacity="0.9"/>
+    </marker>
+    <style>
+      /* Animations */
+      @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+      @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+      @keyframes floatAlt { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-6px) scale(1.03)} }
+      @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+      @keyframes dashMove { to{stroke-dashoffset:-28} }
+      @keyframes ringGrow { 0%,100%{opacity:.12} 50%{opacity:.28} }
+      @keyframes waveAnim { 0%{transform:translateX(0)} 100%{transform:translateX(-24px)} }
+      @keyframes screenPulse { 0%,100%{opacity:.5} 50%{opacity:.85} }
+      @keyframes dotPulse { 0%,100%{r:3;opacity:.5} 50%{r:5;opacity:1} }
+      
+      .p1{animation:pulse 2.5s ease-in-out infinite}
+      .p2{animation:pulse 3s ease-in-out infinite .4s}
+      .p3{animation:pulse 3.5s ease-in-out infinite .8s}
+      .f1{animation:float 3.5s ease-in-out infinite}
+      .f2{animation:float 4s ease-in-out infinite .5s}
+      .f3{animation:float 4.5s ease-in-out infinite 1s}
+      .f4{animation:floatAlt 3.2s ease-in-out infinite .3s}
+      .f5{animation:floatAlt 3.8s ease-in-out infinite .7s}
+      .f6{animation:floatAlt 4.2s ease-in-out infinite 1.2s}
+      .spin1{animation:spin 30s linear infinite;transform-origin:450px 340px}
+      .spin2{animation:spin 45s linear infinite reverse;transform-origin:450px 340px}
+      .dash{stroke-dasharray:14 7;animation:dashMove 1.4s linear infinite}
+      .dash2{stroke-dasharray:14 7;animation:dashMove 1.8s linear infinite .3s}
+      .ring{animation:ringGrow 4s ease-in-out infinite}
+      .ring2{animation:ringGrow 3.5s ease-in-out infinite .5s}
+      .screenGlow{animation:screenPulse 2.5s ease-in-out infinite}
+      .waveMove{animation:waveAnim 1.8s linear infinite}
+      .dotPulse{animation:dotPulse 2s ease-in-out infinite}
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="680" fill="#08080D"/>
+  <circle cx="450" cy="340" r="320" fill="url(#bgGlow)"/>
+
+  <!-- Orbit rings -->
+  <circle cx="450" cy="340" r="240" stroke="#E91E7B" stroke-width=".6" fill="none" opacity=".1" stroke-dasharray="5 10" class="spin1"/>
+  <circle cx="450" cy="340" r="280" stroke="#E5A620" stroke-width=".4" fill="none" opacity=".08" stroke-dasharray="8 12" class="spin2"/>
+
+  <!-- Pulse rings -->
+  <circle cx="450" cy="340" r="180" stroke="#E91E7B" stroke-width=".8" fill="none" class="ring"/>
+  <circle cx="450" cy="340" r="140" stroke="#E5A620" stroke-width=".6" fill="none" class="ring2"/>
+
+  <!-- ===== 3D ARROW FLOW PATHS ===== -->
+
+  <!-- Flow to Device 1 (top-left) - curved 3D path -->
+  <path d="M410 310 C360 260 280 200 210 150" stroke="none" fill="none" id="path1"/>
+  <circle r="5" fill="#E91E7B" filter="url(#bigGlow)">
+    <animateMotion dur="2.2s" repeatCount="indefinite" path="M410 310 C360 260 280 200 210 150"/>
+  </circle>
+  <circle r="3" fill="#F04E98" opacity=".7">
+    <animateMotion dur="2.2s" repeatCount="indefinite" path="M410 310 C360 260 280 200 210 150" begin=".6s"/>
+  </circle>
+  <circle r="2" fill="#E91E7B" opacity=".4">
+    <animateMotion dur="2.2s" repeatCount="indefinite" path="M410 310 C360 260 280 200 210 150" begin="1.2s"/>
+  </circle>
+  <path d="M410 310 C360 260 280 200 210 150" stroke="#E91E7B" stroke-width="1.5" fill="none" opacity=".2" class="dash"/>
+
+  <!-- Flow to Device 2 (top-right) -->
+  <path d="M490 310 C540 260 620 200 690 150" stroke="none" fill="none" id="path2"/>
+  <circle r="5" fill="#E5A620" filter="url(#bigGlow)">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M490 310 C540 260 620 200 690 150"/>
+  </circle>
+  <circle r="3" fill="#F0B942" opacity=".7">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M490 310 C540 260 620 200 690 150" begin=".7s"/>
+  </circle>
+  <circle r="2" fill="#E5A620" opacity=".4">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M490 310 C540 260 620 200 690 150" begin="1.4s"/>
+  </circle>
+  <path d="M490 310 C540 260 620 200 690 150" stroke="#E5A620" stroke-width="1.5" fill="none" opacity=".2" class="dash2"/>
+
+  <!-- Flow to Device 3 (right) -->
+  <path d="M500 340 C580 340 680 340 750 340" stroke="none" fill="none" id="path3"/>
+  <circle r="5" fill="#E91E7B" filter="url(#bigGlow)">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M500 340 C580 340 680 340 750 340"/>
+  </circle>
+  <circle r="3" fill="#F04E98" opacity=".7">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M500 340 C580 340 680 340 750 340" begin=".5s"/>
+  </circle>
+  <path d="M500 340 C580 340 680 340 750 340" stroke="#E91E7B" stroke-width="1.5" fill="none" opacity=".2" class="dash"/>
+
+  <!-- Flow to Device 4 (bottom-right) -->
+  <path d="M490 370 C540 420 620 490 690 530" stroke="none" fill="none" id="path4"/>
+  <circle r="5" fill="#E5A620" filter="url(#bigGlow)">
+    <animateMotion dur="2.3s" repeatCount="indefinite" path="M490 370 C540 420 620 490 690 530"/>
+  </circle>
+  <circle r="3" fill="#F0B942" opacity=".7">
+    <animateMotion dur="2.3s" repeatCount="indefinite" path="M490 370 C540 420 620 490 690 530" begin=".6s"/>
+  </circle>
+  <path d="M490 370 C540 420 620 490 690 530" stroke="#E5A620" stroke-width="1.5" fill="none" opacity=".2" class="dash2"/>
+
+  <!-- Flow to Device 5 (bottom-left) -->
+  <path d="M410 370 C360 420 280 490 210 530" stroke="none" fill="none" id="path5"/>
+  <circle r="5" fill="#E91E7B" filter="url(#bigGlow)">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M410 370 C360 420 280 490 210 530"/>
+  </circle>
+  <circle r="3" fill="#F04E98" opacity=".7">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M410 370 C360 420 280 490 210 530" begin=".8s"/>
+  </circle>
+  <path d="M410 370 C360 420 280 490 210 530" stroke="#E91E7B" stroke-width="1.5" fill="none" opacity=".2" class="dash"/>
+
+  <!-- Flow to Device 6 (left) -->
+  <path d="M400 340 C320 340 220 340 150 340" stroke="none" fill="none" id="path6"/>
+  <circle r="5" fill="#E5A620" filter="url(#bigGlow)">
+    <animateMotion dur="2.1s" repeatCount="indefinite" path="M400 340 C320 340 220 340 150 340"/>
+  </circle>
+  <circle r="3" fill="#F0B942" opacity=".7">
+    <animateMotion dur="2.1s" repeatCount="indefinite" path="M400 340 C320 340 220 340 150 340" begin=".4s"/>
+  </circle>
+  <path d="M400 340 C320 340 220 340 150 340" stroke="#E5A620" stroke-width="1.5" fill="none" opacity=".2" class="dash2"/>
+
+  <!-- ===== 3D LAPTOP (Isometric perspective) ===== -->
+  <g filter="url(#shadow3d)">
+    <!-- Ground shadow -->
+    <ellipse cx="450" cy="400" rx="90" ry="16" fill="#E91E7B" opacity=".12"/>
+    
+    <!-- Laptop base - 3D perspective -->
+    <path d="M360 370 L540 370 L530 395 L370 395 Z" fill="url(#laptopBase)" stroke="#E91E7B" stroke-width=".8"/>
+    <!-- Base top edge highlight -->
+    <path d="M360 370 L540 370" stroke="#E91E7B" stroke-width=".5" opacity=".4"/>
+    <!-- Base side (3D depth) -->
+    <path d="M370 395 L530 395 L525 402 L375 402 Z" fill="#0D0D12" stroke="#E91E7B" stroke-width=".3" opacity=".5"/>
+    <!-- Base front edge -->
+    <path d="M375 402 L525 402" stroke="#E91E7B" stroke-width=".4" opacity=".3"/>
+    
+    <!-- Keyboard area -->
+    <g opacity=".6">
+      <line x1="375" y1="377" x2="525" y2="377" stroke="#2a2a35" stroke-width=".4"/>
+      <line x1="378" y1="382" x2="522" y2="382" stroke="#2a2a35" stroke-width=".3"/>
+      <line x1="380" y1="387" x2="520" y2="387" stroke="#2a2a35" stroke-width=".3"/>
+      <line x1="382" y1="392" x2="518" y2="392" stroke="#2a2a35" stroke-width=".3"/>
+    </g>
+    <!-- Touchpad -->
+    <rect x="425" y="390" width="50" height="6" rx="1.5" fill="#1a1a22" stroke="#2a2a35" stroke-width=".4"/>
+    
+    <!-- Hinge -->
+    <path d="M365 370 L535 370" stroke="#333" stroke-width="1.5" opacity=".3"/>
+    
+    <!-- Laptop screen - tilted back for 3D -->
+    <path d="M370 370 L380 250 L520 250 L530 370 Z" fill="url(#laptopBody)" stroke="#E91E7B" stroke-width="1"/>
+    <!-- Screen side edge (3D depth) -->
+    <path d="M530 370 L520 250 L524 248 L534 368 Z" fill="#111118" stroke="#E91E7B" stroke-width=".3" opacity=".4"/>
+    
+    <!-- Screen bezel -->
+    <path d="M378 258 L385 362 L515 362 L522 258 Z" fill="#0A0A0F" stroke="#222" stroke-width=".5"/>
+    
+    <!-- Screen content -->
+    <path d="M382 262 L388 358 L512 358 L518 262 Z" fill="url(#screenGrad)"/>
+    
+    <!-- Screen glow overlay -->
+    <path d="M382 262 L388 358 L512 358 L518 262 Z" fill="#E91E7B" opacity=".06" class="screenGlow"/>
+    
+    <!-- Audio waveform on screen -->
+    <g clip-path="url(#screenClip)">
+      <path d="M395 310 L405 295 L415 320 L425 290 L435 325 L445 285 L455 315 L465 298 L475 308 L485 302 L495 310" 
+            stroke="#E91E7B" stroke-width="2.5" fill="none" stroke-linecap="round" class="waveMove" opacity=".85"/>
+      <path d="M395 310 L405 295 L415 320 L425 290 L435 325 L445 285 L455 315 L465 298 L475 308 L485 302 L495 310" 
+            stroke="#E5A620" stroke-width="1.2" fill="none" stroke-linecap="round" class="waveMove" opacity=".35" style="animation-delay:.4s"/>
+    </g>
+    
+    <!-- Bluetooth icon on screen -->
+    <g transform="translate(440,320)">
+      <path d="M10 3 L20 13 L10 23 M20 13 L10 3 M20 13 L10 23" stroke="#E5A620" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
+    </g>
+    
+    <!-- Camera -->
+    <circle cx="450" cy="252" r="2.5" fill="#1a1a22" stroke="#333" stroke-width=".5"/>
+    <circle cx="450" cy="252" r="1.2" fill="#E91E7B" opacity=".4" class="p1"/>
+    
+    <!-- Screen reflection highlight -->
+    <path d="M385 265 L390 350" stroke="white" stroke-width=".5" opacity=".04"/>
+  </g>
+
+  <!-- ===== DEVICE 1: 3D HEADPHONES (Top-Left) ===== -->
+  <g class="f1" filter="url(#shadow3d)">
+    <circle cx="195" cy="140" r="52" fill="#12121A" stroke="#E91E7B" stroke-width="2.5"/>
+    <circle cx="195" cy="140" r="44" fill="#18181F"/>
+    <!-- Inner glow ring -->
+    <circle cx="195" cy="140" r="40" stroke="#E91E7B" stroke-width=".5" fill="none" opacity=".2"/>
+    
+    <!-- 3D Headphones -->
+    <!-- Headband -->
+    <path d="M172 148 C172 125 182 112 195 112 C208 112 218 125 218 148" stroke="#E91E7B" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <!-- Headband highlight -->
+    <path d="M178 145 C178 128 186 118 195 118 C204 118 212 128 212 145" stroke="#F04E98" stroke-width="1" fill="none" opacity=".3"/>
+    
+    <!-- Left ear cup - 3D -->
+    <ellipse cx="170" cy="145" rx="12" ry="15" fill="#E91E7B"/>
+    <ellipse cx="170" cy="145" rx="9" ry="12" fill="#C4175F"/>
+    <ellipse cx="168" cy="142" rx="4" ry="5" fill="#F04E98" opacity=".4"/>
+    <!-- Cushion -->
+    <ellipse cx="170" cy="145" rx="7" ry="10" fill="#1a0a12" opacity=".5"/>
+    
+    <!-- Right ear cup - 3D -->
+    <ellipse cx="220" cy="145" rx="12" ry="15" fill="#E91E7B"/>
+    <ellipse cx="220" cy="145" rx="9" ry="12" fill="#C4175F"/>
+    <ellipse cx="218" cy="142" rx="4" ry="5" fill="#F04E98" opacity=".4"/>
+    <ellipse cx="220" cy="145" rx="7" ry="10" fill="#1a0a12" opacity=".5"/>
+    
+    <!-- Connection indicator -->
+    <circle cx="195" cy="140" r="5" fill="#E5A620" class="dotPulse"/>
+    <circle cx="195" cy="140" r="8" stroke="#E5A620" stroke-width=".8" fill="none" opacity=".3" class="p2"/>
+  </g>
+
+  <!-- ===== DEVICE 2: 3D EARBUDS (Top-Right) ===== -->
+  <g class="f2" filter="url(#shadowGold)">
+    <circle cx="705" cy="140" r="52" fill="#12121A" stroke="#E5A620" stroke-width="2.5"/>
+    <circle cx="705" cy="140" r="44" fill="#18181F"/>
+    <circle cx="705" cy="140" r="40" stroke="#E5A620" stroke-width=".5" fill="none" opacity=".2"/>
+    
+    <!-- 3D Earbuds -->
+    <!-- Left earbud -->
+    <ellipse cx="690" cy="132" rx="11" ry="13" fill="#E5A620"/>
+    <ellipse cx="690" cy="132" rx="8" ry="10" fill="#C48D15"/>
+    <ellipse cx="688" cy="129" rx="3.5" ry="4" fill="#F0B942" opacity=".5"/>
+    <ellipse cx="690" cy="132" rx="5" ry="7" fill="#1a1208" opacity=".4"/>
+    <!-- Stem -->
+    <line x1="690" y1="145" x2="690" y2="162" stroke="#E5A620" stroke-width="3" stroke-linecap="round"/>
+    <line x1="689" y1="147" x2="689" y2="160" stroke="#F0B942" stroke-width="1" opacity=".3"/>
+    
+    <!-- Right earbud -->
+    <ellipse cx="720" cy="132" rx="11" ry="13" fill="#E5A620"/>
+    <ellipse cx="720" cy="132" rx="8" ry="10" fill="#C48D15"/>
+    <ellipse cx="718" cy="129" rx="3.5" ry="4" fill="#F0B942" opacity=".5"/>
+    <ellipse cx="720" cy="132" rx="5" ry="7" fill="#1a1208" opacity=".4"/>
+    <line x1="720" y1="145" x2="720" y2="162" stroke="#E5A620" stroke-width="3" stroke-linecap="round"/>
+    <line x1="719" y1="147" x2="719" y2="160" stroke="#F0B942" stroke-width="1" opacity=".3"/>
+    
+    <circle cx="705" cy="140" r="5" fill="#E91E7B" class="dotPulse"/>
+    <circle cx="705" cy="140" r="8" stroke="#E91E7B" stroke-width=".8" fill="none" opacity=".3" class="p3"/>
+  </g>
+
+  <!-- ===== DEVICE 3: 3D SPEAKER (Right) ===== -->
+  <g class="f4" filter="url(#shadow3d)">
+    <circle cx="760" cy="340" r="52" fill="#12121A" stroke="#E91E7B" stroke-width="2.5"/>
+    <circle cx="760" cy="340" r="44" fill="#18181F"/>
+    <circle cx="760" cy="340" r="40" stroke="#E91E7B" stroke-width=".5" fill="none" opacity=".2"/>
+    
+    <!-- 3D Speaker -->
+    <!-- Cabinet -->
+    <rect x="740" y="320" width="24" height="36" rx="3" fill="#E91E7B"/>
+    <rect x="742" y="322" width="20" height="32" rx="2" fill="#C4175F"/>
+    
+    <!-- Woofer -->
+    <circle cx="752" cy="338" r="10" fill="#1a0a12"/>
+    <circle cx="752" cy="338" r="8" fill="#222"/>
+    <circle cx="752" cy="338" r="5" fill="#E91E7B" opacity=".6"/>
+    <circle cx="750" cy="336" r="2" fill="#F04E98" opacity=".4"/>
+    
+    <!-- Tweeter -->
+    <circle cx="752" cy="326" r="4" fill="#1a0a12"/>
+    <circle cx="752" cy="326" r="2.5" fill="#E91E7B" opacity=".5"/>
+    
+    <!-- Sound waves (3D curved) -->
+    <path d="M768 328 Q782 340 768 352" stroke="#E91E7B" stroke-width="2.5" fill="none" opacity=".7" stroke-linecap="round"/>
+    <path d="M774 322 Q794 340 774 358" stroke="#E91E7B" stroke-width="1.8" fill="none" opacity=".4" stroke-linecap="round"/>
+    <path d="M780 316 Q806 340 780 364" stroke="#E91E7B" stroke-width="1" fill="none" opacity=".2" stroke-linecap="round"/>
+    
+    <circle cx="760" cy="340" r="5" fill="#E5A620" class="dotPulse"/>
+    <circle cx="760" cy="340" r="8" stroke="#E5A620" stroke-width=".8" fill="none" opacity=".3" class="p1"/>
+  </g>
+
+  <!-- ===== DEVICE 4: 3D HEADPHONES (Bottom-Right) ===== -->
+  <g class="f5" filter="url(#shadowGold)">
+    <circle cx="705" cy="540" r="52" fill="#12121A" stroke="#E5A620" stroke-width="2.5"/>
+    <circle cx="705" cy="540" r="44" fill="#18181F"/>
+    <circle cx="705" cy="540" r="40" stroke="#E5A620" stroke-width=".5" fill="none" opacity=".2"/>
+    
+    <!-- 3D Headphones -->
+    <path d="M682 548 C682 525 692 512 705 512 C718 512 728 525 728 548" stroke="#E5A620" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M688 545 C688 528 696 518 705 518 C714 518 722 528 722 545" stroke="#F0B942" stroke-width="1" fill="none" opacity=".3"/>
+    
+    <ellipse cx="680" cy="545" rx="12" ry="15" fill="#E5A620"/>
+    <ellipse cx="680" cy="545" rx="9" ry="12" fill="#C48D15"/>
+    <ellipse cx="678" cy="542" rx="4" ry="5" fill="#F0B942" opacity=".4"/>
+    <ellipse cx="680" cy="545" rx="7" ry="10" fill="#1a1208" opacity=".5"/>
+    
+    <ellipse cx="730" cy="545" rx="12" ry="15" fill="#E5A620"/>
+    <ellipse cx="730" cy="545" rx="9" ry="12" fill="#C48D15"/>
+    <ellipse cx="728" cy="542" rx="4" ry="5" fill="#F0B942" opacity=".4"/>
+    <ellipse cx="730" cy="545" rx="7" ry="10" fill="#1a1208" opacity=".5"/>
+    
+    <circle cx="705" cy="540" r="5" fill="#E91E7B" class="dotPulse"/>
+    <circle cx="705" cy="540" r="8" stroke="#E91E7B" stroke-width=".8" fill="none" opacity=".3" class="p2"/>
+  </g>
+
+  <!-- ===== DEVICE 5: 3D EARBUDS (Bottom-Left) ===== -->
+  <g class="f6" filter="url(#shadow3d)">
+    <circle cx="195" cy="540" r="52" fill="#12121A" stroke="#E91E7B" stroke-width="2.5"/>
+    <circle cx="195" cy="540" r="44" fill="#18181F"/>
+    <circle cx="195" cy="540" r="40" stroke="#E91E7B" stroke-width=".5" fill="none" opacity=".2"/>
+    
+    <!-- 3D Earbuds -->
+    <ellipse cx="180" cy="532" rx="11" ry="13" fill="#E91E7B"/>
+    <ellipse cx="180" cy="532" rx="8" ry="10" fill="#C4175F"/>
+    <ellipse cx="178" cy="529" rx="3.5" ry="4" fill="#F04E98" opacity=".5"/>
+    <ellipse cx="180" cy="532" rx="5" ry="7" fill="#1a0a12" opacity=".4"/>
+    <line x1="180" y1="545" x2="180" y2="562" stroke="#E91E7B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="179" y1="547" x2="179" y2="560" stroke="#F04E98" stroke-width="1" opacity=".3"/>
+    
+    <ellipse cx="210" cy="532" rx="11" ry="13" fill="#E91E7B"/>
+    <ellipse cx="210" cy="532" rx="8" ry="10" fill="#C4175F"/>
+    <ellipse cx="208" cy="529" rx="3.5" ry="4" fill="#F04E98" opacity=".5"/>
+    <ellipse cx="210" cy="532" rx="5" ry="7" fill="#1a0a12" opacity=".4"/>
+    <line x1="210" y1="545" x2="210" y2="562" stroke="#E91E7B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="209" y1="547" x2="209" y2="560" stroke="#F04E98" stroke-width="1" opacity=".3"/>
+    
+    <circle cx="195" cy="540" r="5" fill="#E5A620" class="dotPulse"/>
+    <circle cx="195" cy="540" r="8" stroke="#E5A620" stroke-width=".8" fill="none" opacity=".3" class="p3"/>
+  </g>
+
+  <!-- ===== DEVICE 6: 3D SPEAKER (Left) ===== -->
+  <g class="f3" filter="url(#shadowGold)">
+    <circle cx="140" cy="340" r="52" fill="#12121A" stroke="#E5A620" stroke-width="2.5"/>
+    <circle cx="140" cy="340" r="44" fill="#18181F"/>
+    <circle cx="140" cy="340" r="40" stroke="#E5A620" stroke-width=".5" fill="none" opacity=".2"/>
+    
+    <!-- 3D Speaker -->
+    <rect x="120" y="320" width="24" height="36" rx="3" fill="#E5A620"/>
+    <rect x="122" y="322" width="20" height="32" rx="2" fill="#C48D15"/>
+    
+    <circle cx="132" cy="338" r="10" fill="#1a1208"/>
+    <circle cx="132" cy="338" r="8" fill="#222"/>
+    <circle cx="132" cy="338" r="5" fill="#E5A620" opacity=".6"/>
+    <circle cx="130" cy="336" r="2" fill="#F0B942" opacity=".4"/>
+    
+    <circle cx="132" cy="326" r="4" fill="#1a1208"/>
+    <circle cx="132" cy="326" r="2.5" fill="#E5A620" opacity=".5"/>
+    
+    <!-- Sound waves (going left) -->
+    <path d="M112 328 Q98 340 112 352" stroke="#E5A620" stroke-width="2.5" fill="none" opacity=".7" stroke-linecap="round"/>
+    <path d="M106 322 Q86 340 106 358" stroke="#E5A620" stroke-width="1.8" fill="none" opacity=".4" stroke-linecap="round"/>
+    <path d="M100 316 Q74 340 100 364" stroke="#E5A620" stroke-width="1" fill="none" opacity=".2" stroke-linecap="round"/>
+    
+    <circle cx="140" cy="340" r="5" fill="#E91E7B" class="dotPulse"/>
+    <circle cx="140" cy="340" r="8" stroke="#E91E7B" stroke-width=".8" fill="none" opacity=".3" class="p1"/>
+  </g>
+
+  <!-- Floating particles -->
+  <circle cx="320" cy="200" r="2" fill="#E91E7B" opacity=".4" class="p2"/>
+  <circle cx="580" cy="200" r="2" fill="#E5A620" opacity=".4" class="p3"/>
+  <circle cx="320" cy="480" r="2" fill="#E5A620" opacity=".4" class="p1"/>
+  <circle cx="580" cy="480" r="2" fill="#E91E7B" opacity=".4" class="p2"/>
+  <circle cx="270" cy="340" r="1.5" fill="#E91E7B" opacity=".25" class="p3"/>
+  <circle cx="630" cy="340" r="1.5" fill="#E5A620" opacity=".25" class="p1"/>
+  <circle cx="450" cy="180" r="1.5" fill="#E5A620" opacity=".25" class="p2"/>
+  <circle cx="450" cy="500" r="1.5" fill="#E91E7B" opacity=".25" class="p3"/>
+
+  <!-- Bottom label -->
+  <text x="450" y="640" text-anchor="middle" fill="url(#pinkGold)" font-family="Inter,-apple-system,sans-serif" font-size="14" font-weight="700" letter-spacing="5" opacity=".6">ONE PC  ·  EVERY DEVICE  ·  SAME AUDIO</text>
+</svg>

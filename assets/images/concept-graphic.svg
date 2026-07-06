@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E91E7B" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="pinkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E91E7B"/>
+      <stop offset="100%" stop-color="#E5A620"/>
+    </linearGradient>
+    <style>
+      @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+      .spin { animation: rotate 20s linear infinite; transform-origin: 200px 200px; }
+      .pulsing { animation: pulse 2s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="#0A0A0F"/>
+  <circle cx="200" cy="200" r="180" fill="url(#bgGlow)"/>
+
+  <!-- Outer ring -->
+  <circle cx="200" cy="200" r="160" stroke="url(#pinkGold)" stroke-width="1" fill="none" opacity="0.3" class="spin"/>
+
+  <!-- Connection lines -->
+  <line x1="200" y1="200" x2="200" y2="60" stroke="#E91E7B" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+  <line x1="200" y1="200" x2="320" y2="130" stroke="#E5A620" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+  <line x1="200" y1="200" x2="340" y2="260" stroke="#E91E7B" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+  <line x1="200" y1="200" x2="200" y2="340" stroke="#E5A620" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+  <line x1="200" y1="200" x2="80" y2="260" stroke="#E91E7B" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+  <line x1="200" y1="200" x2="80" y2="130" stroke="#E5A620" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+
+  <!-- Central PC -->
+  <g class="pulsing">
+    <circle cx="200" cy="200" r="40" fill="#16161F" stroke="#E91E7B" stroke-width="2"/>
+    <circle cx="200" cy="200" r="30" fill="#0A0A0F"/>
+    <!-- Bluetooth symbol -->
+    <g transform="translate(191, 188)">
+      <path d="M9 3 L18 12 L9 21 M18 12 L9 3 M18 12 L9 21" stroke="url(#pinkGold)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Device 1: Top -->
+  <g class="pulsing" style="animation-delay: 0.2s">
+    <circle cx="200" cy="50" r="22" fill="#16161F" stroke="#E91E7B" stroke-width="1.5"/>
+    <path d="M191 52 C191 44 195 40 200 40 C205 40 209 44 209 52" stroke="#E91E7B" stroke-width="1.5" fill="none"/>
+    <rect x="189" y="48" width="4" height="8" rx="2" fill="#E91E7B"/>
+    <rect x="207" y="48" width="4" height="8" rx="2" fill="#E91E7B"/>
+  </g>
+
+  <!-- Device 2: Top-right -->
+  <g class="pulsing" style="animation-delay: 0.4s">
+    <circle cx="330" cy="120" r="22" fill="#16161F" stroke="#E5A620" stroke-width="1.5"/>
+    <circle cx="324" cy="118" r="4" fill="#E5A620"/>
+    <circle cx="336" cy="118" r="4" fill="#E5A620"/>
+    <line x1="324" y1="122" x2="324" y2="128" stroke="#E5A620" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="336" y1="122" x2="336" y2="128" stroke="#E5A620" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Device 3: Bottom-right -->
+  <g class="pulsing" style="animation-delay: 0.6s">
+    <circle cx="350" cy="270" r="22" fill="#16161F" stroke="#E91E7B" stroke-width="1.5"/>
+    <rect x="343" y="264" width="5" height="10" rx="1" fill="#E91E7B"/>
+    <path d="M348 264 L356 258 L356 282 L348 276" fill="#E91E7B"/>
+  </g>
+
+  <!-- Device 4: Bottom -->
+  <g class="pulsing" style="animation-delay: 0.8s">
+    <circle cx="200" cy="350" r="22" fill="#16161F" stroke="#E5A620" stroke-width="1.5"/>
+    <path d="M191 352 C191 344 195 340 200 340 C205 340 209 344 209 352" stroke="#E5A620" stroke-width="1.5" fill="none"/>
+    <rect x="189" y="348" width="4" height="8" rx="2" fill="#E5A620"/>
+    <rect x="207" y="348" width="4" height="8" rx="2" fill="#E5A620"/>
+  </g>
+
+  <!-- Device 5: Bottom-left -->
+  <g class="pulsing" style="animation-delay: 1s">
+    <circle cx="60" cy="270" r="22" fill="#16161F" stroke="#E91E7B" stroke-width="1.5"/>
+    <circle cx="54" cy="268" r="4" fill="#E91E7B"/>
+    <circle cx="66" cy="268" r="4" fill="#E91E7B"/>
+    <line x1="54" y1="272" x2="54" y2="278" stroke="#E91E7B" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="66" y1="272" x2="66" y2="278" stroke="#E91E7B" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Device 6: Top-left -->
+  <g class="pulsing" style="animation-delay: 1.2s">
+    <circle cx="70" cy="120" r="22" fill="#16161F" stroke="#E5A620" stroke-width="1.5"/>
+    <rect x="63" y="114" width="5" height="10" rx="1" fill="#E5A620"/>
+    <path d="M68 114 L76 108 L76 132 L68 126" fill="#E5A620"/>
+  </g>
+
+  <!-- Text -->
+  <text x="200" y="390" text-anchor="middle" fill="#E91E7B" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="3" opacity="0.6">ONE PC  ·  EVERY DEVICE  ·  SAME AUDIO</text>
+</svg>
