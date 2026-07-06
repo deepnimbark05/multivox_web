@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.nav');
     if (nav) {
         window.addEventListener('scroll', () => {
-            nav.style.background = window.scrollY > 20
-                ? 'rgba(8,8,13,0.95)'
-                : 'rgba(8,8,13,0.9)';
+            nav.style.boxShadow = window.scrollY > 20
+                ? '0 6px 0px #1A1A1A'
+                : '0 4px 0px #1A1A1A';
         });
     }
 
