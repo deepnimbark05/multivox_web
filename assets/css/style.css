@@ -219,6 +219,13 @@ a:hover { color: var(--pink); }
 .dl-note { margin-top: 10px; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
 .dl-note strong { color: var(--pink); }
 
+.dl-help { margin-top: 12px; text-align: left; }
+.dl-help summary { cursor: pointer; font-size: 0.78rem; color: var(--pink); font-weight: 600; border-bottom: 2px dashed var(--pink); display: inline; }
+.dl-help summary:hover { color: var(--text); }
+.dl-steps { margin: 10px 0 8px 18px; font-size: 0.78rem; color: var(--text-dim); line-height: 1.7; }
+.dl-steps strong { color: var(--text); }
+.dl-help-note { font-size: 0.72rem; color: var(--text-muted); font-style: italic; }
+
 /* Hero visual */
 .hero-vis { display: none; }
 
